@@ -1,2 +1,18 @@
-<app-header [userImg]="userProfileImg"></app-header>
-<app-banner></app-banner>
+<app-header  [name]="name" [userImg]="userProfileImg"></app-header>
+
+
+<!-- Banner component -->
+<app-banner 
+  [bannerTitle]="(bannerDetail$ | async)?.original_title"
+  [bannerOverview]="(bannerDetail$ | async)?.overview"
+  [key]="(bannerVideo$ | async)?.results[0].key">
+</app-banner>
+
+<!-- Movie carousels for different categories -->
+<app-movie-carousel [title]="'Popular on Netflix'" [videoContents]="movies"></app-movie-carousel>
+<app-movie-carousel [title]="'Trending TV shows'" [videoContents]="tvShows"></app-movie-carousel>
+<app-movie-carousel [title]="'Now Playing Movies'" [videoContents]="nowPlayingMovies"></app-movie-carousel>
+<app-movie-carousel [title]="'Top Rated Movies'" [videoContents]="topRatedMovies"></app-movie-carousel>
+<app-movie-carousel [title]="'Upcoming Movies'" [videoContents]="upcomingMovies"></app-movie-carousel>
+<app-movie-carousel [title]="'Popular Movies'" [videoContents]="popularMovies"></app-movie-carousel>
+<app-movie-carousel [title]="'Latest Movies'" [videoContents]="latestMovies"></app-movie-carousel>
