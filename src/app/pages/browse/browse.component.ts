@@ -20,11 +20,13 @@ import { CommonModule } from '@angular/common';
 
 export class BrowseComponent implements OnInit {
 
-  auth = inject(AuthService)
-  movieService = inject(MovieService)
-  name = JSON.parse(sessionStorage.getItem('loggedInUser')!).name;
-  userProfileImg = JSON.parse(sessionStorage.getItem('loggedInUser')!).picture;
-  email = JSON.parse(sessionStorage.getItem('loggedInUser')!).email;
+  auth = inject(AuthService);
+  movieService = inject(MovieService);
+
+  name: string = '';
+  userProfileImg: string = '';
+  email: string = '';
+
   bannerDetail$ = new Observable<any>();
   bannerVideo$ = new Observable<any>();
 
@@ -51,13 +53,22 @@ export class BrowseComponent implements OnInit {
   ]
 
   ngOnInit(): void {
+
+    const loggedInUser = sessionStorage.getItem('loggedInUser');
+    if (loggedInUser) {
+      const user = JSON.parse(loggedInUser);
+      this.name = user.name;
+      this.userProfileImg = user.picture;
+      this.email = user.email;
+    }
+
     forkJoin(this.sources)
       .pipe(
-        map(([movies, tvShows, nowPlaying, upcoming, popular, topRated, ratedMovies, latestMovies, trendingMovies]) => {
-          this.bannerDetail$ = this.movieService.getBannerDetail(movies.results[0].id)
-          this.bannerVideo$ = this.movieService.getBannerVideo(movies.results[0].id)
+        map(([movies, tvShows, nowPlaying, upcoming, popular, topRated, ratedMovies, latestMovies]) => {
+          this.bannerDetail$ = this.movieService.getBannerDetail(movies.results[3].id)
+          this.bannerVideo$ = this.movieService.getBannerVideo(movies.results[3].id)
 
-          return { movies, tvShows, nowPlaying, upcoming, popular, topRated, ratedMovies, latestMovies, trendingMovies };
+          return { movies, tvShows, nowPlaying, upcoming, popular, topRated, ratedMovies, latestMovies };
         })
       ).subscribe((res: any) => {
         this.movies = res.movies.results as IVideoContent[];

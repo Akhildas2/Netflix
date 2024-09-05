@@ -14,22 +14,26 @@ import { MovieCarouselComponent } from './shared/components/movie-carousel/movie
 import { ImagePipe } from './shared/pipes/image.pipe';
 import { DescriptionPipe } from './shared/pipes/description.pipe';
 
+// Import BrowserAnimationsModule for animations
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    CommonModule,
+    // Import BrowserAnimationsModule to support animations
+    BrowserAnimationsModule,
     // Import standalone components and pipes
     BrowseComponent,
     MovieCarouselComponent,
     DescriptionPipe,
     ImagePipe,
-    CommonModule,
     HeaderComponent,
     BannerComponent,
   ],
