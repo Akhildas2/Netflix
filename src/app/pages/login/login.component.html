@@ -1,41 +1,5 @@
-<div class="relative bg-black h-screen">
-    <div class="absolute top-0 left-0 w-full h-full">
-        <div class="gradient-overlay absolute top-0 left-0 w-full h-full"></div>
-        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/dae1f45f-c2c5-4a62-8d58-6e1b0c6b2d8e/6d1fb8a4-5844-42a4-9b01-1c6c128acf19/IN-en-20240827-TRIFECTA-perspective_WEB_c292a608-cdc6-4686-8dc8-405bfcf753af_large.jpg" alt="" class="w-full h-full object-cover">
+<div class="h-screen" [ngStyle]="{'background-image':'url('+bgUrl+')'}">
+    <div class="flex bg-gradient-to-b">
+        <img [src]="logUrl" alt="Netflix logo" class="w-52">
     </div>
-
-    <div class="absolute w-full flex justify-between items-center p-4">
-        <!-- Left Side: Logo -->
-        <div class="logo-container ml-8">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="w-40 h-auto">
-        </div>
-
-        <!-- Right Side: Language Dropdown and Google Button -->
-        <div class="flex items-center space-x-4">
-            <!-- Language Dropdown -->
-            <select class="dropdown text-white border border-white rounded p-2 bg-transparent">
-                <option value="en" class="text-black">English</option>
-                <option value="hi" class="text-black">Hindi</option>
-            </select>
-
-            <!-- Google Button -->
-            <div id="google-btn">
-                <button class="bg-blue-600 text-white py-2 px-4 rounded">Sign In</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Center Content -->
-    <div class="content-container w-full md:w-6/12 absolute right-0 left-0 p-12 my-36 mx-auto text-white rounded-lg bg-opacity-80 text-center">
-        <h1 class="font-bold text-6xl py-4">Unlimited movies, TV shows and more</h1> <!-- Increased font size -->
-        <p class="font-bold text-2xl py-2 ">Starts at ₹149. Cancel anytime.</p> <!-- Increased font size -->
-        <p class="font-bold text-1xl py-4">Ready to watch? Enter your email to create or restart your membership.</p> <!-- Increased font size -->
-    
-        <!-- Email Input Box and Button -->
-        <div class="flex justify-center items-center space-x-2 font-bold">
-            <input type="email" placeholder="Enter your email" class="p-4 text-black bg-transparent rounded-l-md w-2/3 border border-gray-400">
-            <button class="bg-red-600 font-bold text-2xl text-white p-4 rounded-r-md">Get Started > </button>
-        </div>
-    </div>
-    
 </div>

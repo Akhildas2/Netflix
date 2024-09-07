@@ -16,11 +16,13 @@ import { DescriptionPipe } from './shared/pipes/description.pipe';
 
 // Import BrowserAnimationsModule for animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
