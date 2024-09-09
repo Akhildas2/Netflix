@@ -1,5 +1,48 @@
-<div class="h-screen" [ngStyle]="{'background-image':'url('+bgUrl+')'}">
-    <div class="flex bg-gradient-to-b">
-        <img [src]="logUrl" alt="Netflix logo" class="w-52">
+<div class="h-screen" [ngStyle]="{'background-image':'url(' + bgUrl + ')'}">
+    <div class="gradient-overlay"></div>
+    <div class="header">
+      <img [src]="logUrl" alt="Netflix logo" />
     </div>
-</div>
+    <div class="login-container">
+      <div class="login-card">
+        <h2 class="heading">Sign In</h2>
+        <div class="relative w-full md:w-full flex-shrink">
+          <!-- Email Field -->
+          <input
+            type="email"
+            placeholder=" "
+            class="p-4 text-white bg-transparent rounded-md md:rounded-l-md w-full border border-gray-400 peer"
+          />
+          <label
+            class="absolute left-4 top-4 text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm transition-all"
+          >
+            Email or mobile number
+          </label>
+        </div>
+        <!-- Password Field -->
+        <div class="relative w-full md:w-full flex-shrink mt-6">
+          <input
+            type="password"
+            placeholder=" "
+            class="p-4 text-white bg-transparent rounded-md md:rounded-l-md w-full border border-gray-400 peer"
+          />
+          <label
+            class="absolute left-4 top-4 text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm transition-all"
+          >
+            Password
+          </label>
+        </div>
+        <div class="action-field">
+          <button class="login-btn">Sign In</button>
+        </div>
+        <p class="text-center mt-5">OR</p>
+        <div class="action-field mt-5">
+          <div id="google-btn" class="google-btn">
+            <!-- Add your Google button content here -->
+            <button class="login-btn google-login-btn">Sign in with Google</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
