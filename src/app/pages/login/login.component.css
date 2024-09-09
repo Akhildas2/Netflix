@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to top, black, rgba(0, 0, 0, 0), black);
+    background-image: linear-gradient(to top, black, rgba(0, 0, 0.1, 0.1), black);
     z-index: 1;
   }
   
@@ -87,3 +87,8 @@
     width: 200px;
   }
   
+
+.checkbox-large {
+  transform: scale(1.5); 
+  margin: 0; 
+}

@@ -1,0 +1,30 @@
+<div class="ml-40 mr-40">
+  <h1 class="text-2xl font-bold text-white">Frequently Asked Questions</h1>
+
+  <div *ngFor="let question of faqs; let i = index" class="mt-5 mb-4 box text-4xl">
+    <button (click)="toggleAccordion(i)" class="w-full flex justify-between items-center py-4 px-5 text-white">
+      <span>{{ question.title }}</span>
+      <span [ngClass]="{'rotate-45': isOpen(i)}" class="text-white transition-transform duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+          <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
+        </svg>
+      </span>
+    </button>
+    <div [ngClass]="{'max-h-0': !isOpen(i), 'max-h-96': isOpen(i)}" class="overflow-hidden transition-all duration-300 ease-in-out">
+      <div class="p-4 text-1xl text-white">
+        {{ question.answer }}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div >
+  <p class="mt-10 text-center">Ready to watch? Enter your email to create or restart your membership.</p>
+  <div class="relative flex flex-col md:flex-row justify-center items-center md:space-x-4 mt-4 ml-60 mr-60 ">
+    <div class="relative md:w-2/3 flex-shrink">
+        <input type="email" placeholder=" " class="p-3 md:p-4 text-white bg-transparent rounded-md md:rounded-l-md w-full border border-gray-400 peer">
+        <label class="absolute left-3 top-4 text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm transition-all">Email address</label>
+    </div>
+    <button class="bg-red-700 font-bold text-sm md:text-lg text-white px-3 py-2 md:px-4 md:py-3 rounded-md md:rounded-r-md mt-4 md:mt-0 flex-shrink-0 flex items-center justify-center whitespace-nowrap">Get Started <span class="text-lg md:text-xl ml-1"> &gt;</span></button>
+  </div>
+</div>

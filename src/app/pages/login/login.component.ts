@@ -1,7 +1,7 @@
 declare var google: any;
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BG_iMG_URL, LOGO_URL } from '../constants/config';
+import { BG_iMG_URL, LOGO_URL } from '../../constants/config';
 
 @Component({
   selector: 'app-login',
