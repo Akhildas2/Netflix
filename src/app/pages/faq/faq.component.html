@@ -1,22 +1,25 @@
 <div class="ml-40 mr-40">
   <h1 class="text-2xl font-bold text-white">Frequently Asked Questions</h1>
 
-  <div *ngFor="let question of faqs; let i = index" class="mt-5 mb-4 box text-4xl">
+  <div *ngFor="let question of faqs; let i = index" class="mt-2 mb-2 box text-4xl">
     <button (click)="toggleAccordion(i)" class="w-full flex justify-between items-center py-4 px-5 text-white">
       <span>{{ question.title }}</span>
       <span [ngClass]="{'rotate-45': isOpen(i)}" class="text-white transition-transform duration-300">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-8 h-8">
           <path d="M8.75 3.75a.75.75 0 0 0-1.5 0v3.5h-3.5a.75.75 0 0 0 0 1.5h3.5v3.5a.75.75 0 0 0 1.5 0v-3.5h3.5a.75.75 0 0 0 0-1.5h-3.5v-3.5Z" />
         </svg>
       </span>
     </button>
+    <hr class="bg-black h-px border-0">
     <div [ngClass]="{'max-h-0': !isOpen(i), 'max-h-96': isOpen(i)}" class="overflow-hidden transition-all duration-300 ease-in-out">
       <div class="p-4 text-1xl text-white">
-        {{ question.answer }}
+        <!-- Iterate through the answer array and render each paragraph -->
+        <p *ngFor="let para of question.answer">{{ para }}</p>
       </div>
     </div>
   </div>
 </div>
+
 
 <div >
   <p class="mt-10 text-center">Ready to watch? Enter your email to create or restart your membership.</p>

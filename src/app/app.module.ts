@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
 import { FooterComponent } from './pages/footer/footer.component';
 import { FaqComponent } from './pages/faq/faq.component';
+import { TrendingComponent } from './pages/trending/trending.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { FaqComponent } from './pages/faq/faq.component';
     HomeComponent,
     FooterComponent,
     FaqComponent,
+    TrendingComponent,
   ],
   imports: [
     BrowserModule,
