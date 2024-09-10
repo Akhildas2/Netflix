@@ -10,7 +10,7 @@ describe('BrowseComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [BrowseComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(BrowseComponent);
     component = fixture.componentInstance;

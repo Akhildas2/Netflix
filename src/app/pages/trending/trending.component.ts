@@ -8,11 +8,11 @@ import { IVideoContent } from '../../shared/models/video-content.interface';
   selector: 'app-trending',
   templateUrl: './trending.component.html',
   styleUrl: './trending.component.css',
-  standalone:true,
-  imports :[CommonModule,MovieCarouselComponent]
+  standalone: true,
+  imports: [CommonModule, MovieCarouselComponent]
 })
-export class TrendingComponent implements OnInit{
-  
+export class TrendingComponent implements OnInit {
+
 
   movieService = inject(MovieService);
   trendingMovies: IVideoContent[] = [];

@@ -1,10 +1,8 @@
-<app-header  [name]="name" [userImg]="userProfileImg"></app-header>
+<app-header [name]="name" [userImg]="userProfileImg"></app-header>
 
 
 <!-- Banner component -->
-<app-banner 
-  [bannerTitle]="(bannerDetail$ | async)?.original_title"
-  [bannerOverview]="(bannerDetail$ | async)?.overview"
+<app-banner [bannerTitle]="(bannerDetail$ | async)?.original_title" [bannerOverview]="(bannerDetail$ | async)?.overview"
   [key]="(bannerVideo$ | async)?.results[0].key">
 </app-banner>
 

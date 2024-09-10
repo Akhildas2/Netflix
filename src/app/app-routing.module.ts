@@ -11,15 +11,15 @@ const routes: Routes = [
   },
   {
     path: 'browse',
-    component: BrowseComponent 
+    component: BrowseComponent
   },
   {
     path: 'login',
-    component: LoginComponent 
+    component: LoginComponent
   },
   {
     path: '**',
-    redirectTo:'login'
+    redirectTo: 'login'
   }
 ];
 

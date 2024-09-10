@@ -1,4 +1,4 @@
-declare var google:any;
+declare var google: any;
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -6,10 +6,16 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-router = inject(Router)
+  router = inject(Router)
+
   constructor() { }
-  signOut(){
+  login(email: string, password: string) {
+    localStorage.setItem("token", Math.random() + "")
+  }
+
+  signOut() {
     google.accounts.id.disableAutoSelect();
     this.router.navigate(['/']);
   }
+
 }

@@ -10,7 +10,7 @@ describe('TrendingComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [TrendingComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(TrendingComponent);
     component = fixture.componentInstance;

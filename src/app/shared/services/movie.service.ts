@@ -34,11 +34,11 @@ export class MovieService {
   }
 
   getBannerImage(id: number) {
-    return this.http.get<any>(`https://api.themoviedb.org/3/movie/${id}/images`,options);
+    return this.http.get<any>(`https://api.themoviedb.org/3/movie/${id}/images`, options);
   }
 
   getBannerVideo(id: number) {
-    return this.http.get<any>(`https://api.themoviedb.org/3/movie/${id}/videos`,options);
+    return this.http.get<any>(`https://api.themoviedb.org/3/movie/${id}/videos`, options);
   }
 
   getBannerDetail(id: number) {

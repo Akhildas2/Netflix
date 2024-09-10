@@ -15,7 +15,7 @@ import { FooterComponent } from '../../core/components/footer/footer.component';
   templateUrl: './browse.component.html',
   styleUrl: './browse.component.css',
   standalone: true,
-  imports: [CommonModule, MovieCarouselComponent, BannerComponent, HeaderComponent,FooterComponent]
+  imports: [CommonModule, MovieCarouselComponent, BannerComponent, HeaderComponent, FooterComponent]
 })
 
 

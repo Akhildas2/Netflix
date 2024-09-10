@@ -2,6 +2,8 @@ declare var google: any;
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BG_iMG_URL, LOGO_URL } from '../../constants/config';
+import { AuthService } from '../../shared/services/auth.service';
+import { environment } from '../../../environment';
 
 @Component({
   selector: 'app-login',
@@ -11,11 +13,15 @@ import { BG_iMG_URL, LOGO_URL } from '../../constants/config';
 export class LoginComponent implements OnInit {
   private router = inject(Router)
   logUrl = LOGO_URL;
-  bgUrl=BG_iMG_URL;
+  bgUrl = BG_iMG_URL;
+  email!: string;
+  password!: string;
+  loginService = inject(AuthService)
+
   ngOnInit(): void {
 
     google.accounts.id.initialize({
-      client_id: '603795361310-drm8b24rblspo3o5njhmh6si6681ada6.apps.googleusercontent.com',
+      client_id: environment.googleClientId,
       callback: (resp: any) => {
         this.handleLogin(resp)
       }
@@ -44,5 +50,14 @@ export class LoginComponent implements OnInit {
       //navigate to home page
       this.router.navigate(['browse'])
     }
+  }
+
+  onSubmit() {
+    if (!this.email || !this.password) {
+      alert("Provide email and password");
+      return;
+    }
+    this.loginService.login(this.email, this.password);
+    this.router.navigate(['browse']);
   }
 }
