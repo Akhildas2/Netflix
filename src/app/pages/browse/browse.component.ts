@@ -8,13 +8,14 @@ import { HeaderComponent } from '../../core/components/header/header.component';
 import { MovieCarouselComponent } from '../../shared/components/movie-carousel/movie-carousel.component';
 import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from '../../core/components/footer/footer.component';
 
 @Component({
   selector: 'app-browse',
   templateUrl: './browse.component.html',
   styleUrl: './browse.component.css',
   standalone: true,
-  imports: [CommonModule, MovieCarouselComponent, BannerComponent, HeaderComponent]
+  imports: [CommonModule, MovieCarouselComponent, BannerComponent, HeaderComponent,FooterComponent]
 })
 
 

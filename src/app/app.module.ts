@@ -27,7 +27,6 @@ import { TrendingComponent } from './pages/trending/trending.component';
     LoginComponent,
     HomeComponent,
     FaqComponent,
-    FooterComponent,
 
   ],
   imports: [
@@ -45,6 +44,7 @@ import { TrendingComponent } from './pages/trending/trending.component';
     HeaderComponent,
     BannerComponent,
     TrendingComponent,
+    FooterComponent,
 
 
   ],
