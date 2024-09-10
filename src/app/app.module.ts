@@ -17,7 +17,7 @@ import { DescriptionPipe } from './shared/pipes/description.pipe';
 // Import BrowserAnimationsModule for animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
-import { FooterComponent } from './pages/footer/footer.component';
+import { FooterComponent } from './core/components/footer/footer.component';
 import { FaqComponent } from './pages/faq/faq.component';
 import { TrendingComponent } from './pages/trending/trending.component';
 
@@ -26,9 +26,9 @@ import { TrendingComponent } from './pages/trending/trending.component';
     AppComponent,
     LoginComponent,
     HomeComponent,
-    FooterComponent,
     FaqComponent,
-    TrendingComponent,
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -44,6 +44,9 @@ import { TrendingComponent } from './pages/trending/trending.component';
     ImagePipe,
     HeaderComponent,
     BannerComponent,
+    TrendingComponent,
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

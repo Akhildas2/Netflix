@@ -66,8 +66,6 @@ export class MovieService {
   }
 
   getTrendingMovies() {
-    // The trending endpoint might need a specific time window
-    // Example for weekly trending:
     return this.http.get<any>('https://api.themoviedb.org/3/trending/movie/week', options);
   }
 }
