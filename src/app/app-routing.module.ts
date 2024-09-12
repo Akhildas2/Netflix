@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 import { BrowseComponent } from './pages/browse/browse.component';
 import { HomeComponent } from './pages/home/home.component';
+import { VideoPlayerComponent } from './pages/video-player/video-player.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'video-player/:id',
+    component: VideoPlayerComponent
   },
   {
     path: '**',

@@ -6,7 +6,7 @@ import { DescriptionPipe } from '../../pipes/description.pipe';
 import { ImagePipe } from '../../pipes/image.pipe';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-movie-carousel',
   templateUrl: './movie-carousel.component.html',
@@ -27,6 +27,8 @@ export class MovieCarouselComponent implements AfterViewInit {
   @Input() videoContents: IVideoContent[] = [];
   selectedContent: string | null = null;
   @ViewChild('swiperContainer') swiperContainer!: ElementRef;
+
+  constructor(private router: Router) { }
 
   ngAfterViewInit(): void {
     this.initSwiper();
@@ -79,5 +81,9 @@ export class MovieCarouselComponent implements AfterViewInit {
 
   clearHoverMovie() {
     this.selectedContent = null;
+  }
+
+  onImageClick(movie: IVideoContent) {
+    this.router.navigate(['/video-player', movie.id]);
   }
 }

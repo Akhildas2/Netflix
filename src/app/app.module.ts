@@ -21,6 +21,7 @@ import { FaqComponent } from './core/components/faq/faq.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { TrendingComponent } from './core/components/trending/trending.component';
+import { VideoPlayerComponent } from './pages/video-player/video-player.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TrendingComponent } from './core/components/trending/trending.component
     LoginComponent,
     HomeComponent,
     FaqComponent,
+    VideoPlayerComponent,
 
   ],
   imports: [

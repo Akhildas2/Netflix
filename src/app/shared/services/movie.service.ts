@@ -68,4 +68,9 @@ export class MovieService {
   getTrendingMovies() {
     return this.http.get<any>('https://api.themoviedb.org/3/trending/movie/week', options);
   }
+
+  getMovieDetails(id: string) {
+    return this.http.get<any>(`https://api.themoviedb.org/3/movie/${id}`, options);
+  }
+
 }
