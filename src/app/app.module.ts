@@ -17,10 +17,10 @@ import { DescriptionPipe } from './shared/pipes/description.pipe';
 // Import BrowserAnimationsModule for animations
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './pages/home/home.component';
-import { FaqComponent } from './pages/faq/faq.component';
-import { TrendingComponent } from './pages/trending/trending.component';
+import { FaqComponent } from './core/components/faq/faq.component';
 import { FooterComponent } from './core/components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
+import { TrendingComponent } from './core/components/trending/trending.component';
 
 @NgModule({
   declarations: [
@@ -44,9 +44,9 @@ import { FormsModule } from '@angular/forms';
     ImagePipe,
     HeaderComponent,
     BannerComponent,
-    TrendingComponent,
     FooterComponent,
-    FormsModule
+    FormsModule,
+    TrendingComponent
 
 
   ],

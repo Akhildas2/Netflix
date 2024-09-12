@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
-import { MovieCarouselComponent } from '../../shared/components/movie-carousel/movie-carousel.component';
-import { MovieService } from '../../shared/services/movie.service';
-import { IVideoContent } from '../../shared/models/video-content.interface';
+import { MovieCarouselComponent } from '../../../shared/components/movie-carousel/movie-carousel.component'; 
+import { MovieService } from '../../../shared/services/movie.service'; 
+import { IVideoContent } from '../../../shared/models/video-content.interface'; 
 
 @Component({
   selector: 'app-trending',
