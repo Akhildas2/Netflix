@@ -1,20 +1,20 @@
-
 <div *ngIf="videoContent" class="container">
-  
-  <div class="title">
+
+  <div class="title text-center mt-5">
     <h1>{{ videoContent.title }}</h1>
   </div>
 
   <ng-container *ngIf="videoUrl; else showImage">
-    <iframe class="mt-10" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
+    <iframe class="mt-10 mx-auto block" [src]="videoUrl" frameborder="0" allowfullscreen></iframe>
   </ng-container>
 
- <ng-template #showImage>
-    <img class="mt-10 ml-24" [src]="imageUrl" alt="{{ videoContent.title }}" />
+  <ng-template #showImage>
+    <img class="mt-10 mx-auto block overflow-hidden" [src]="imageUrl" alt="{{ videoContent.title }}" />
   </ng-template>
 
-  <div class="overview ml-24 mr-24">
-    <h1 class="underline">Over view</h1>
+  <div class="overview mx-auto mt-5 px-6">
+    <h1 class="underline text-xl mb-2">Overview</h1>
     <p>{{ videoContent.overview }}</p>
   </div>
+
 </div>

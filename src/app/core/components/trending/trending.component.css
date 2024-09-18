@@ -26,30 +26,18 @@
     z-index: -1;
 }
 
-
 .content-container {
     position: relative;
     z-index: 2;
     margin-top: -160px;
 }
 
-@media (min-width: 1280px) {
-    .curved-background {
-        width: 130%;
-        left: -15%;
-    }
+.curved-background {
+    width: 150%;
+    left: -25%;
+
 }
 
-@media (min-width: 960px) {
-    .curved-background {
-        width: 150%;
-        left: -25%;
-    }
-}
-
-@media (min-width: 600px) {
-    .curved-background {
-        width: 180%;
-        left: -40%;
-    }
+.card {
+    background: linear-gradient(to bottom right, #1e1535, #0a0612);
 }
