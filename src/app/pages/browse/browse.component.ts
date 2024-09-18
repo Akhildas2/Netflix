@@ -21,17 +21,20 @@ import { FooterComponent } from '../../core/components/footer/footer.component';
 
 export class BrowseComponent implements OnInit {
 
+  // Inject AuthService and MovieService
   auth = inject(AuthService);
   movieService = inject(MovieService);
 
+  // Input User's name, profile image and email address
   name: string = '';
   userProfileImg: string = '';
   email: string = '';
 
+  // Observable for banner details and banner video
   bannerDetail$ = new Observable<any>();
   bannerVideo$ = new Observable<any>();
 
-
+  // Arrays to hold different types of video content
   movies: IVideoContent[] = [];
   tvShows: IVideoContent[] = [];
   nowPlayingMovies: IVideoContent[] = [];
@@ -40,7 +43,7 @@ export class BrowseComponent implements OnInit {
   upcomingMovies: IVideoContent[] = [];
   latestMovies: IVideoContent[] = [];
 
-
+  // List of observables for fetching different types of content
   sources = [
     this.movieService.getMovies(),
     this.movieService.getTvShows(),
@@ -55,6 +58,7 @@ export class BrowseComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Retrieve logged-in user information from session storage
     const loggedInUser = sessionStorage.getItem('loggedInUser');
     if (loggedInUser) {
       const user = JSON.parse(loggedInUser);
@@ -63,15 +67,19 @@ export class BrowseComponent implements OnInit {
       this.email = user.email;
     }
 
+    // Fetch all sources
     forkJoin(this.sources)
       .pipe(
         map(([movies, tvShows, nowPlaying, upcoming, popular, topRated, ratedMovies, latestMovies]) => {
+          // Fetch banner details and video based on the movie ID 
           this.bannerDetail$ = this.movieService.getBannerDetail(movies.results[3].id)
           this.bannerVideo$ = this.movieService.getBannerVideo(movies.results[3].id)
 
+          // Return all fetched data
           return { movies, tvShows, nowPlaying, upcoming, popular, topRated, ratedMovies, latestMovies };
         })
       ).subscribe((res: any) => {
+        // Assign results to component properties
         this.movies = res.movies.results as IVideoContent[];
         this.tvShows = res.tvShows.results as IVideoContent[];
         this.nowPlayingMovies = res.nowPlaying.results as IVideoContent[];
@@ -82,9 +90,10 @@ export class BrowseComponent implements OnInit {
       })
   }
 
+  // Method to handle user sign-out
   signOut() {
-    sessionStorage.removeItem("loggedInUser");
-    this.auth.signOut();
+    sessionStorage.removeItem("loggedInUser");// Remove user information from session storage
+    this.auth.signOut(); // Call signOut method from AuthService
   }
 
 }

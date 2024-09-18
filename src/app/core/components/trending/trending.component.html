@@ -4,21 +4,22 @@
 <div class="content-container ml-40 mr-40">
     <h1 class="text-2xl font-bold mt-5 mb-5">Trending Now</h1>
     <div>
-        <select class="dropdown text-white border border-white rounded p-2 bg-transparent">
+        <select class="dropdown text-white border border-white rounded p-2 bg-transparent w-full md:w-auto">
             <option value="in" class="text-black">India</option>
             <option value="global" class="text-black">Global</option>
         </select>
 
-        <select class="dropdown ml-4 text-white border border-white rounded p-2 bg-transparent ">
+        <select class="dropdown xl:ml-4 text-white border border-white rounded p-2 bg-transparent w-full md:w-auto">
             <option value="movies-en" class="text-black">Movies</option>
             <option value="tv-en" class="text-black">TV shows </option>
         </select>
     </div>
 </div>
 
-<div class="ml-20">
+<div class="xl:ml-40 mr-40">
     <app-movie-carousel [videoContents]="trendingMovies"></app-movie-carousel>
 </div>
+
 <div class="ml-40 mr-40 mt-5">
 
     <h1 class="text-3xl font-bold mt-5">More reasons to join</h1>

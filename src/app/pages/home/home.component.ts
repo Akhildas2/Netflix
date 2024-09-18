@@ -6,9 +6,11 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
+
 export class HomeComponent {
   constructor(private router: Router) { }
 
+  // Method to navigate to the login page
   goToLogin() {
     this.router.navigate(['/login'])
   }

@@ -10,16 +10,18 @@ import { environment } from '../../../environment';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
+
 export class LoginComponent implements OnInit {
-  private router = inject(Router)
+
+  private router = inject(Router)// Injects Router for navigation
   logUrl = LOGO_URL;
   bgUrl = BG_iMG_URL;
   email!: string;
   password!: string;
-  loginService = inject(AuthService)
+  loginService = inject(AuthService)// Injects AuthService for authentication
 
   ngOnInit(): void {
-
+    // Initializes Google OAuth with client ID and callback
     google.accounts.id.initialize({
       client_id: environment.googleClientId,
       callback: (resp: any) => {
@@ -27,17 +29,19 @@ export class LoginComponent implements OnInit {
       }
     });
 
+    // Renders Google Sign-In button
     google.accounts.id.renderButton(document.getElementById("google-btn"), {
       theme: 'filled_blue',
       size: "large",
       shape: 'rectangle',
-      width: 350
+      width: 300
 
     })
 
   }
 
   private decodeToken(token: string) {
+    // Decodes token payload
     return JSON.parse(atob(token.split(".")[1]));
   }
 
@@ -57,7 +61,9 @@ export class LoginComponent implements OnInit {
       alert("Provide email and password");
       return;
     }
+    // Call AuthService to handle email/password login
     this.loginService.login(this.email, this.password);
+    // Navigate to the browse page
     this.router.navigate(['browse']);
   }
 }

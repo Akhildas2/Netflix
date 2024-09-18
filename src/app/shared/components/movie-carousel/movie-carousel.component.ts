@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
 import { IVideoContent } from '../../models/video-content.interface';
@@ -24,8 +24,7 @@ import { Router } from '@angular/router';
     ])
   ]
 })
-
-export class MovieCarouselComponent implements AfterViewInit {
+export class MovieCarouselComponent implements AfterViewInit, OnChanges {
   @Input() title: string = '';
   @Input() videoContents: IVideoContent[] = [];
   selectedContent: string | null = null;
@@ -41,54 +40,50 @@ export class MovieCarouselComponent implements AfterViewInit {
   private initSwiper() {
     setTimeout(() => {
       this.swiperInstance = new Swiper(this.swiperContainer.nativeElement, {
-        slidesPerView: 3,
-        slidesPerGroup: 2,
-        centeredSlides: true,
-        loop: true,
+        slidesPerView: 'auto',
+        spaceBetween: 10,
+        centeredSlides: false,
+        loop: false,
         modules: [Navigation],
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
         breakpoints: {
-          600: {
+          320: {
             slidesPerView: 2,
-            slidesPerGroup: 2,
-            spaceBetween: 5,
-            centeredSlides: true,
+            spaceBetween: 10,
           },
-          900: {
+          480: {
             slidesPerView: 3,
-            slidesPerGroup: 3,
-            spaceBetween: 5,
-            centeredSlides: true,
+            spaceBetween: 15,
           },
-          1200: {
+          640: {
             slidesPerView: 4,
-            slidesPerGroup: 4,
-            spaceBetween: 5,
-            centeredSlides: false,
+            spaceBetween: 15,
           },
-          1500: {
+          768: {
             slidesPerView: 5,
-            slidesPerGroup: 5,
-            spaceBetween: 5,
-            centeredSlides: false,
+            spaceBetween: 20,
           },
-          1800: {
-            slidesPerView: 5,
-            slidesPerGroup: 6,
-            spaceBetween: 5,
-            centeredSlides: false,
+          1024: {
+            slidesPerView: 6,
+            spaceBetween: 20,
+          },
+          1280: {
+            slidesPerView: 6,
+            spaceBetween: 20,
           }
         }
       });
     }, 100);
   }
 
-  ngOnChanges() {
-    if (this.swiperInstance) {
-      this.swiperInstance.update();
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['videoContents'] && !changes['videoContents'].firstChange) {
+      if (this.swiperInstance) {
+        this.swiperInstance.update();
+      }
     }
   }
 

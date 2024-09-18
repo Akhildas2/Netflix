@@ -1,87 +1,97 @@
 .container {
-  overflow: hidden;
-  margin: 0 auto;
-  padding-left: 5rem;
-  padding-right: 5rem;
-  margin-top: 3.5rem;
-  margin-bottom: 5rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-.swiper-slide {
-  transition: all 300ms ease-in-out;
-  border-radius: 5px;
-  margin: 0 10px;
-  cursor: pointer;
+.carousel-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.swiper-container {
+  width: 100%;
+  overflow: hidden;
   position: relative;
 }
 
-.desc {
-  transition: all 300ms ease-in-out;
-  background-color: #181818c4;
-  height: 170px;
-  position: absolute;
+.swiper-slide {
+  width: auto;
+  height: auto;
+}
+
+.movie-card {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.movie-poster {
   width: 100%;
-  bottom: 0;
-  z-index: 1;
-}
-
-.desc:hover {
-  transition: all 300ms ease-in-out;
-}
-
-.desc.tv {
-  height: 60px;
-}
-
-.swiper-slide img {
-  border-radius: 5px;
+  height: auto;
+  border-radius: 8px;
   cursor: pointer;
-  width: 300px !important;
-  height: 300px !important;
-  object-fit: cover;
 }
 
-.swiper-slide img:active {
-  cursor: grabbing;
+.movie-details {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 1rem;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
-.swiper-slide:hover {
-  transform: scale(1.5);
-  transition: all 300ms ease-in-out;
-  transition-delay: 300ms;
-  z-index: 2;
+.movie-title {
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 
-.swiper-slide:hover img {
-  transition-delay: 300ms;
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);
+.movie-overview {
+  font-size: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.movie-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.rating-value {
+  color: #4caf50;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50px;
-  height: 50px;
-  background-color: rgba(0, 0, 0, 0.5);
   color: white;
+  background-color: black;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  z-index: 3;
 }
 
-.swiper-button-next {
-  right: 10px;
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 1.5rem;
 }
 
-.swiper-button-prev {
-  left: 10px;
+@media (min-width: 640px) {
+  .movie-card:hover {
+    transform: scale(1.05);
+    z-index: 1;
+  }
 }
 
-.swiper-container {
-  overflow: hidden;
+@media (max-width: 639px) {
+  .movie-details {
+    position: static;
+    background: #181818;
+  }
 }

@@ -5,7 +5,9 @@ import { Component } from '@angular/core';
   templateUrl: './faq.component.html',
   styleUrl: './faq.component.css'
 })
+
 export class FaqComponent {
+  // Array of FAQ objects with title and answer
   faqs = [
     {
       title: 'What is Netflix?',
@@ -48,12 +50,15 @@ export class FaqComponent {
     }
   ];
 
+  // Variable to track which FAQ is currently open
   openIndex: number | null = null;
 
+  // Toggles the FAQ section open or closed
   toggleAccordion(index: number): void {
     this.openIndex = this.openIndex === index ? null : index;
   }
 
+  // Checks if the FAQ section at the given index is open
   isOpen(index: number): boolean {
     return this.openIndex === index;
   }

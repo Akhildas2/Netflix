@@ -7,9 +7,12 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule]
 })
+
 export class HeaderComponent {
+  // Input userImg and name
   @Input({ required: true }) userImg: string = '';
   @Input() name: string = '';
-  navList = ["Home", "TV Shows", "News & Popular", "My List", "Browse By Language"]
 
+  // Array for the navigation items
+  navList: string[] = ["Home", "TV Shows", "News & Popular", "My List", "Browse By Language"];
 }

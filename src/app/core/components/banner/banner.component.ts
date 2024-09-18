@@ -11,15 +11,20 @@ import { CommonModule } from '@angular/common';
 })
 
 export class BannerComponent implements OnChanges {
+  // Inputs for the component
   @Input({ required: true }) bannerTitle = '';
   @Input() bannerOverview = '';
   @Input() key = '';
 
+  // URL sanitization and trust
   private sanitizer = inject(DomSanitizer);
+  //create trust URL embedding
   videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.key}?autoplay=1&mute=1&loop=1&controls=0`)
 
+  // Lifecycle hook that reacts to changes in input properties
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['key']) {
+      // Update videoUrl if the 'key' input changes
       this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.key}?autoplay=1&mute=1&loop=1&controls=0`);
     }
   }

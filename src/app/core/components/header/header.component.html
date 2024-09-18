@@ -1,18 +1,23 @@
-<header class="h-[68px] z-10 bg-gray-900 sticky top-0 flex items-center justify-between px-24">
-    <div class="flex gap-10">
-        <img width="150" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+<header
+    class="h-auto sm:h-[88px] z-10 bg-gray-900 sticky top-0 flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 md:px-12 lg:px-24">
+    <div class="flex flex-col sm:flex-row items-center gap-6 sm:gap-8 md:gap-10 lg:gap-12 flex-grow">
+        <img width="120" src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
             alt="netflix-logo">
-        <ul class="flex items-center" *ngFor="let item of navList">
-            <li class="text-neutral-100 cursor-pointer text-lg font-extralight hover:text-gray-500 transition-[1s]">
-                {{item}}</li>
+        <ul class="flex flex-wrap sm:flex-nowrap items-center gap-4 md:gap-4 lg:gap-8">
+            <li *ngFor="let item of navList"
+                class="text-neutral-100 cursor-pointer text-sm md:text-base lg:text-lg font-light hover:text-gray-500 transition duration-300">
+                {{ item }}
+            </li>
         </ul>
     </div>
-    <div class="text-white flex items-center gap-6">
-        <div class="flex items-center gap-2">
-            <a href="/"><span>Welcome <strong>{{name}}</strong></span></a>
-            <img [src]="userImg" width="42" alt="userImg">
+    <div class="text-white flex items-center gap-2">
+        <div class="flex items-center">
+            <a href="/" class="text-sm md:text-sm">
+                <span>Welcome <strong>{{name}}</strong></span>
+            </a>
+            <img [src]="userImg" width="36" alt="userImg">
         </div>
-        &nbsp; | &nbsp;
-        <a href="/">Sign Out</a>
+        <span class="hidden md:inline">|</span>
+        <a href="/" class="text-sm md:text-base">Sign Out</a>
     </div>
 </header>

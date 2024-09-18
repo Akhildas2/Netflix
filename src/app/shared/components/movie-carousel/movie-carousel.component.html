@@ -1,33 +1,26 @@
-<div class="container mt-14 mb-20 relative">
-  <p class="font-semibold text-2xl my-3 ml-3">{{ title }}</p>
+<div class="container">
+  <h2 class="carousel-title">{{ title }}</h2>
 
-  <div #swiperContainer class="swiper-container relative">
+  <div #swiperContainer class="swiper-container">
     <div class="swiper-wrapper">
-      <ng-container *ngFor="let movie of videoContents">
-        <div (mouseenter)="setHoverMovie(movie)" (mouseleave)="clearHoverMovie()" class="swiper-slide relative">
-          <img (click)="onImageClick(movie)" [src]="movie.poster_path | image" alt="" />
+      <div *ngFor="let movie of videoContents" class="swiper-slide">
+        <div class="movie-card" (mouseenter)="setHoverMovie(movie)" (mouseleave)="clearHoverMovie()">
+          <img (click)="onImageClick(movie)" [src]="movie.poster_path | image" [alt]="movie.title || movie.name"
+            class="movie-poster" />
           <div @fade *ngIf="(movie.title === this.selectedContent) || (movie.name === this.selectedContent)"
-            class="desc p-2">
-            <span class="text-base flex flex-wrap font-bold">{{ movie.original_title }}</span>
-            <p class="text-xs my-3">{{ movie.overview | description:150 }}</p>
-            <div class="py-3 absolute w-[90%] bottom-1">
-              <p class="text-xs flex justify-between items-center">
-                <span class="text-green-500">Vote Average: {{ movie.vote_average }}</span>
-                <i class="fa fa-2x fa-chevron-circle-down" aria-hidden="true"></i>
-              </p>
+            class="movie-details">
+            <h3 class="movie-title">{{ movie.original_title }}</h3>
+            <p class="movie-overview">{{ movie.overview | description:100 }}</p>
+            <div class="movie-rating">
+              <span class="rating-value">Rating: {{ movie.vote_average }}</span>
+              <i class="fa fa-chevron-down" aria-hidden="true"></i>
             </div>
           </div>
         </div>
-      </ng-container>
+      </div>
     </div>
 
-    <!-- Overlay Navigation Buttons -->
-    <div class="swiper-button-next">
-      <i class="fa fa-chevron-right"></i>
-    </div>
-    <div class="swiper-button-prev">
-      <i class="fa fa-chevron-left"></i>
-    </div>
-
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
   </div>
 </div>
