@@ -63,10 +63,7 @@
         font-size: 1.5rem;
     }
 
-    select.dropdown {
-        width: 100%;
-        margin-top: 10px;
-    }
+
 }
 
 @media (max-width: 768px) {
@@ -85,6 +82,7 @@
 
     select.dropdown {
         width: 100%;
+        margin-top: 20px;
     }
 
     .card {
@@ -107,11 +105,11 @@
 
     select.dropdown {
         width: 100%;
+
     }
 
     .movie-carousel img {
         width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+
     }
 }

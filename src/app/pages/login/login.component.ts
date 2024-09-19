@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { BG_iMG_URL, LOGO_URL } from '../../constants/config';
 import { AuthService } from '../../shared/services/auth.service';
 import { googleAuth } from '../../../environment';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -16,9 +17,12 @@ export class LoginComponent implements OnInit {
   private router = inject(Router)// Injects Router for navigation
   logUrl = LOGO_URL;
   bgUrl = BG_iMG_URL;
+  // Declaration of the email & password
   email!: string;
   password!: string;
   loginService = inject(AuthService)// Injects AuthService for authentication
+
+  constructor(private toastr: ToastrService) { }
 
   ngOnInit(): void {
     // Initializes Google OAuth with client ID and callback
@@ -51,19 +55,25 @@ export class LoginComponent implements OnInit {
       const payLoad = this.decodeToken(response.credential);
       //store in session
       sessionStorage.setItem("loggedInUser", JSON.stringify(payLoad));
+      this.toastr.success('Logged in successfully!', 'Success');
       //navigate to home page
       this.router.navigate(['browse'])
+    } else {
+      this.toastr.error('Login failed', 'Error');
     }
   }
 
+  // Method to handle form submission
   onSubmit() {
     if (!this.email || !this.password) {
-      alert("Provide email and password");
+      this.toastr.warning('Please provide email and password', 'Warning');
       return;
     }
     // Call AuthService to handle email/password login
     this.loginService.login(this.email, this.password);
+    this.toastr.success('Logged in successfully!', 'Success');
     // Navigate to the browse page
     this.router.navigate(['browse']);
   }
+
 }

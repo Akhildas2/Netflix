@@ -9,14 +9,15 @@
             <option value="global" class="text-black">Global</option>
         </select>
 
-        <select class="dropdown xl:ml-4 text-white border border-white rounded p-2 bg-transparent w-full md:w-auto">
+        <select
+            class="dropdown xl:ml-4 lg:ml-4 text-white border border-white rounded p-2 bg-transparent w-full md:w-auto">
             <option value="movies-en" class="text-black">Movies</option>
             <option value="tv-en" class="text-black">TV shows </option>
         </select>
     </div>
 </div>
 
-<div class="xl:ml-40 mr-40">
+<div class="xl:ml-36 xl:mr-36">
     <app-movie-carousel [videoContents]="trendingMovies"></app-movie-carousel>
 </div>
 

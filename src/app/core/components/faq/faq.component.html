@@ -26,17 +26,21 @@
 
 <div>
   <p class="mt-10 text-center">Ready to watch? Enter your email to create or restart your membership.</p>
-  <div
-    class="relative flex flex-col md:flex-row justify-center items-center md:space-x-4 mt-4 ml-5 md:ml-60 mr-5 md:mr-60">
-    <div class="relative w-full md:w-2/3 flex-shrink">
-      <input type="email" placeholder=" "
-        class="p-3 md:p-4 text-white bg-transparent rounded-md md:rounded-l-md w-full border border-gray-400 peer">
-      <label
-        class="absolute left-3 top-4 text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm transition-all">Email
-        address</label>
+  <form (ngSubmit)="onSubmit()">
+    <div
+      class="relative flex flex-col md:flex-row justify-center items-center md:space-x-4 mt-4 ml-5 md:ml-60 mr-5 md:mr-60">
+      <div class="relative w-full  md:w-2/3 flex-shrink-0">
+        <input type="email" placeholder=" " name="email" [(ngModel)]="email"
+          class="p-3 md:p-4 text-white bg-transparent rounded-md md:rounded-l-md w-full border border-gray-400 peer">
+        <label
+          class="absolute left-3 top-4 text-gray-400 peer-placeholder-shown:top-4 peer-placeholder-shown:text-gray-400 peer-focus:top-0 peer-focus:text-sm transition-all">Email
+          address</label>
+      </div>
+      <button
+        class="bg-red-600 font-bold text-sm md:text-lg text-white px-3 py-2 md:px-4 md:py-3 rounded-md md:rounded-r-md mt-4 md:mt-0 flex-shrink-0 flex items-center justify-center whitespace-nowrap">
+        Get Started
+        <span class="ml-1 text-sm md:text-lg font-bold"> &gt;</span>
+      </button>
     </div>
-    <button
-      class="bg-red-700 font-bold text-sm md:text-lg text-white px-3 py-2 md:px-4 md:py-3 rounded-md md:rounded-r-md mt-4 md:mt-0 flex-shrink-0 flex items-center justify-center whitespace-nowrap">Get
-      Started <span class="text-lg md:text-xl ml-1"> &gt;</span></button>
-  </div>
+  </form>
 </div>

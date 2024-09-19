@@ -22,6 +22,7 @@ import { FooterComponent } from './core/components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { TrendingComponent } from './core/components/trending/trending.component';
 import { VideoPlayerComponent } from './pages/video-player/video-player.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,14 @@ import { VideoPlayerComponent } from './pages/video-player/video-player.componen
     CommonModule,
     // Import BrowserAnimationsModule to support animations
     BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-top-right', // Adjust position if needed
+      timeOut: 3000, // Duration
+      extendedTimeOut: 1000, // Duration on hover
+      closeButton: true,
+      progressBar: true,
+      preventDuplicates: true
+    }),
     // Import standalone components and pipes
     BrowseComponent,
     MovieCarouselComponent,

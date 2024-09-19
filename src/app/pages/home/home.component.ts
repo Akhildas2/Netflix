@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,17 @@ import { Router } from '@angular/router';
 })
 
 export class HomeComponent {
-  constructor(private router: Router) { }
+
+  email!: string;// Declaration of the email
+  constructor(private router: Router, private toastr: ToastrService) { }
+
+  // Method to handle form submission
+  onSubmit() {
+    if (!this.email) {
+      this.toastr.warning('Please provide email ', 'Warning');
+      return;
+    }
+  }
 
   // Method to navigate to the login page
   goToLogin() {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-faq',
@@ -53,6 +54,10 @@ export class FaqComponent {
   // Variable to track which FAQ is currently open
   openIndex: number | null = null;
 
+  // Declaration of the email
+  email !: string;
+  constructor(private toastr: ToastrService) { }
+
   // Toggles the FAQ section open or closed
   toggleAccordion(index: number): void {
     this.openIndex = this.openIndex === index ? null : index;
@@ -61,5 +66,13 @@ export class FaqComponent {
   // Checks if the FAQ section at the given index is open
   isOpen(index: number): boolean {
     return this.openIndex === index;
+  }
+
+  // Method to handle form submission
+  onSubmit() {
+    if (!this.email) {
+      this.toastr.warning('Please provide email ', 'Warning');
+      return;
+    }
   }
 }
