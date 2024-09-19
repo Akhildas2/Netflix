@@ -3,7 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BG_iMG_URL, LOGO_URL } from '../../constants/config';
 import { AuthService } from '../../shared/services/auth.service';
-import { environment } from '../../../environment';
+import { googleAuth } from '../../../environment';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     // Initializes Google OAuth with client ID and callback
     google.accounts.id.initialize({
-      client_id: environment.googleClientId,
+      client_id: googleAuth.googleClientId,
       callback: (resp: any) => {
         this.handleLogin(resp)
       }

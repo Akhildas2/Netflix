@@ -4,9 +4,11 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'image',
   standalone: true
 })
+
 export class ImagePipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
+  transform(value: any): any {
+    // Takes the input value and returns a full URL to the image from TMDb 
     return `https://image.tmdb.org/t/p/w500/${value}`;
   }
 

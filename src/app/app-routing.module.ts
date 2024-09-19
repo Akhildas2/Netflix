@@ -7,23 +7,23 @@ import { VideoPlayerComponent } from './pages/video-player/video-player.componen
 
 const routes: Routes = [
   {
-    path: '',
+    path: '',// Default route, maps to the home component
     component: HomeComponent
   },
   {
-    path: 'browse',
+    path: 'browse',// Route to browse movies or TV shows
     component: BrowseComponent
   },
   {
-    path: 'login',
+    path: 'login', // Route to the login page
     component: LoginComponent
   },
   {
-    path: 'video-player/:id',
+    path: 'video-player/:id',// Route to the video player, expects an ID parameter for the movie or show
     component: VideoPlayerComponent
   },
   {
-    path: '**',
+    path: '**', // Wildcard route, redirects to the login page if no route matches
     redirectTo: 'login'
   }
 ];
