@@ -15,7 +15,8 @@
             <a href="/" class="text-sm md:text-sm">
                 <span>Welcome <strong>{{name}}</strong></span>
             </a>
-            <img [src]="userImg" width="36" alt="userImg">
+            <img [src]="userImg || 'https://www.gstatic.com/images/branding/product/1x/avatar_square_blue_512dp.png'"
+                width="36" alt="userImg">
         </div>
         <span class="hidden md:inline">|</span>
         <a href="/" class="text-sm md:text-base">Sign Out</a>
